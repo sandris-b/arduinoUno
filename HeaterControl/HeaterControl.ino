@@ -17,7 +17,7 @@ DHT dht = DHT(DHTPIN, DHTTYPE);
 float t = 0.0;
 float h = 0.0;
 bool IsHeaterOn = false;
-int temp;
+int temp = 10;
 
  BLYNK_WRITE(V8)  {
     if (param.asInt()){
@@ -38,6 +38,7 @@ void setup()
   Blynk.begin(auth, ssid, pass);  
   Serial.begin(9600);
   Blynk.virtualWrite(V4, "clr");//clear console
+  Blynk.syncVirtual(V8);
 }
 
 void loop()
